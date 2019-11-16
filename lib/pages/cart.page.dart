@@ -9,7 +9,7 @@ class CartPage extends StatelessWidget {
         children: <Widget>[
           Expanded(
             child: Container(
-              child: productList(),
+              child: productList(context),
             ),
           ),
           Container(
@@ -30,7 +30,7 @@ class CartPage extends StatelessWidget {
                       Text(
                         '\$4250',
                         style: TextStyle(
-                          color: Colors.blue,
+                          color: Theme.of(context).primaryColor,
                           fontWeight: FontWeight.bold,
                           fontSize: 20,
                         ),
@@ -42,7 +42,7 @@ class CartPage extends StatelessWidget {
                   height: 50,
                   width: 150,
                   decoration: BoxDecoration(
-                    color: Colors.blue,
+                    color: Theme.of(context).primaryColor,
                     borderRadius: BorderRadius.all(
                       Radius.circular(5),
                     ),
@@ -51,7 +51,9 @@ class CartPage extends StatelessWidget {
                   child: FlatButton(
                     child: Text(
                       'Checkout',
-                      style: TextStyle(color: Colors.white),
+                      style: TextStyle(
+                        color: Theme.of(context).accentColor,
+                      ),
                     ),
                     onPressed: () => {},
                   ),
@@ -65,29 +67,21 @@ class CartPage extends StatelessWidget {
   }
 }
 
-Widget productList() {
+Widget productList(context) {
   return ListView(
     children: <Widget>[
-      productItem(),
-      productItem(),
-      productItem(),
-      productItem(),
-      productItem(),
-      productItem(),
-      productItem(),
-      /* productItem(context, 'BeoPlay Speaker', '755', 'assets/product-1.png'),
-      productItem(context, 'Leather Wristwatch', '450', 'assets/product-2.png'),
-      productItem(
-          context, 'Smart Bluetooth Speaker', '900', 'assets/product-3.png'),
-      productItem(context, 'Smart Luggage', '100', 'assets/product-4.png'),
-      productItem(context, 'Smartphone Case', '99', 'assets/product-5.png'),
-      productItem(context, 'Speakers Stand', '49', 'assets/product-6.png'),
-      productItem(context, 'AirPods', '199', 'assets/product-7.png'), */
+      productItem(context),
+      productItem(context),
+      productItem(context),
+      productItem(context),
+      productItem(context),
+      productItem(context),
+      productItem(context),
     ],
   );
 }
 
-Widget productItem() {
+Widget productItem(context) {
   return Container(
     height: 120,
     margin: EdgeInsets.all(5),
@@ -110,7 +104,7 @@ Widget productItem() {
               Text('Titulo do produto'),
               Text(
                 '\$200',
-                style: TextStyle(color: Colors.blue),
+                style: TextStyle(color: Theme.of(context).primaryColor),
               ),
               SizedBox(height: 10),
               Container(
